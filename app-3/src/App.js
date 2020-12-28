@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  constructor(){
+    super()
+
+    this.state = {      
+      username: '',
+      password: ''
+    }
+
+    //Why do we need this to work?
+    // this.handleLogin = this.handleLogin.bind(this)
+  }
+
+  handleUserName(e){
+    this.setState({username: e})
+  }
+
+  handlePassWord(e){
+    this.setState({password: e})
+  }
+
+  handleLogin(username, password){
+    alert(`Username: ${username} Password: ${password}`)
+  }
+
+  render(){
+    return(
+      <section className='App'>
+        <input class='UserName' onChange= {(e) => this.handleUserName(e.target.value)}></input>
+        <input class='Password' onChange= {(e) => this.handlePassWord(e.target.value)}></input>
+        <button class='login' onClick= {() => this.handleLogin(this.state.username, this.state.password)}>Login</button>
+      </section>
+    )
+  }
+
 }
 
 export default App;
