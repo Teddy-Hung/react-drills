@@ -19,7 +19,7 @@ class App extends Component{
   handleAdd(item){
     let arr = this.state.listOfItems
     arr.push(item)
-    this.setState({listOfItems: arr})
+    this.setState({listOfItems: arr, userInput: ''})
   }
 
   render(){
@@ -28,7 +28,7 @@ class App extends Component{
     return(
       <section class= 'App'>
         <h1>My to-do list</h1>
-        <input placeholder= 'Enter new task' onChange= {(e) => this.handleChange(e.target.value)}></input>
+        <input value= {this.state.userInput} placeholder= 'Enter new task' onChange= {(e) => this.handleChange(e.target.value)}></input>
         <button class= 'AddButton' onClick = {() => this.handleAdd(this.state.userInput)}>Add</button>
         <span class= 'list'>{listItems}</span>
       </section>
