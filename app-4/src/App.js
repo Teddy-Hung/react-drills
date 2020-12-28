@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component{
+  constructor(){
+    super()
 
+    this.state={
+      img: null
+    }
+  }
+
+  render(){
+    return(
+      <section class= 'App'>
+        <img src='https://panels-images.twitch.tv/panel-28503320-image-3785c4d2-b0ab-467a-b544-0b400bf1e8da' alt= 'about-me-image'></img>
+      </section>
+    )
+  }
+}
 export default App;
